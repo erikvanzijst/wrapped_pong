@@ -78,7 +78,7 @@ module wrapped_pong(
     // connecting what you need of the above signals. 
     // Use the buffered outputs for your module's outputs.
 
-    pong #(.GAMECLK(8), .SCREENTIMERWIDTH(`SCREENTIMERWIDTH)) pong0 (
+    pong #(.GAMECLK(8)) pong0 (
         .clk(wb_clk_i),
         .reset(la_data_in[0]),
         

@@ -1,11 +1,11 @@
 --- 
 # information
 project: 
-  title: "title"
-  description: "description"
-  picture: docs/empty.png
-  author: "Author"
-  github: https://github.com/link
+  title: "Pong"
+  description: "A hardware implementation of Pong"
+  picture: docs/pong.jpg
+  author: "Erik van Zijst"
+  github: https://github.com/erikvanzijst/wrapped_project_template.git
   license: LICENSE
 
 # test within caravel

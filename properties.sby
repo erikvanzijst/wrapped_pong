@@ -5,7 +5,7 @@ mode prove
 smtbmc
 
 [script]
-read -formal wrapper.v pong/src/debounce.v pong/src/rot_encoder.v pong/src/clkdiv.v pong/src/screen.v pong/src/game.v pong/src/trig.v pong/src/paddle.v pong/src/ball.v pong/src/score.v pong/src/pong.v
+read -formal wrapper.v debounce.v rot_encoder.v clkdiv.v screen.v game.v trig.v paddle.v ball.v score.v pong.v
 prep -top wrapped_pong
 
 [files]
@@ -21,3 +21,5 @@ pong/src/paddle.v
 pong/src/ball.v
 pong/src/score.v
 pong/src/pong.v
+pong/sine.lut
+pong/paddles.rom
