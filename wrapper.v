@@ -3,7 +3,7 @@
     `define MPRJ_IO_PADS 38    
 `endif
 // update this to the name of your module
-module wrapped_project(
+module wrapped_pong(
 `ifdef USE_POWER_PINS
     inout vdda1,	// User area 1 3.3V supply
     inout vdda2,	// User area 2 3.3V supply
@@ -77,6 +77,36 @@ module wrapped_project(
     // Instantiate your module here, 
     // connecting what you need of the above signals. 
     // Use the buffered outputs for your module's outputs.
+
+    pong #(.GAMECLK(8), .SCREENTIMERWIDTH(`SCREENTIMERWIDTH)) pong0 (
+        .clk(wb_clk_i),
+        .reset(la_data_in[0]),
+        
+        .start(io_in[8]),
+
+        .player1_a(io_in[9]),
+        .player1_b(io_in[10]),
+        .player2_a(io_in[11]),
+        .player2_b(io_in[12]),
+
+        // 7-segment scoreboards:
+        .seg_a(buf_io_out[13]),
+        .seg_b(buf_io_out[14]),
+        .seg_c(buf_io_out[15]),
+        .seg_d(buf_io_out[16]),
+        .seg_e(buf_io_out[17]),
+        .seg_f(buf_io_out[18]),
+        .seg_g(buf_io_out[19]),
+        .cath(buf_io_out[20]),
+
+        // 16x16 Matrix display:
+        .RCLK(buf_io_out[21]),
+        .RSDI(buf_io_out[22]),
+        .OEB(buf_io_out[23]),
+        .CSDI(buf_io_out[24]),
+        .CCLK(buf_io_out[25]),
+        .LE(buf_io_out[26])
+    );
 
 endmodule 
 `default_nettype wire

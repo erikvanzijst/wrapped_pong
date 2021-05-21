@@ -5,10 +5,19 @@ mode prove
 smtbmc
 
 [script]
-read -formal wrapper.v rest of your source files.v
-prep -top wrapped_project
+read -formal wrapper.v pong/src/debounce.v pong/src/rot_encoder.v pong/src/clkdiv.v pong/src/screen.v pong/src/game.v pong/src/trig.v pong/src/paddle.v pong/src/ball.v pong/src/score.v pong/src/pong.v
+prep -top wrapped_pong
 
 [files]
 wrapper.v
 properties.v
-rest of your source files.v
+pong/src/debounce.v
+pong/src/rot_encoder.v
+pong/src/clkdiv.v
+pong/src/screen.v
+pong/src/game.v
+pong/src/trig.v
+pong/src/paddle.v
+pong/src/ball.v
+pong/src/score.v
+pong/src/pong.v
