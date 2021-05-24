@@ -1,0 +1,243 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Fri May 21 01:27:17 2021
+[*]
+[dumpfile] "/home/erik/work/caravel_user_project/verilog/dv/pong/pong.vcd"
+[dumpfile_mtime] "Fri May 21 01:23:40 2021"
+[dumpfile_size] 157245497
+[savefile] "/home/erik/work/caravel_user_project/verilog/dv/pong/pong.gtkw"
+[timestart] 250846000
+[size] 2095 818
+[pos] -232 -161
+*-18.705864 249650000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] pong_tb.
+[treeopen] pong_tb.uut.
+[treeopen] pong_tb.uut.mprj.
+[treeopen] pong_tb.uut.mprj.pong_wrapper.
+[treeopen] pong_tb.uut.mprj.pong_wrapper.pong0.
+[treeopen] pong_tb.uut.mprj.pong_wrapper.pong0.game0.
+[treeopen] pong_tb.uut.soc.
+[treeopen] pong_tb.uut.soc.soc.
+[sst_width] 233
+[signals_width] 279
+[sst_expanded] 1
+[sst_vpaned_height] 222
+@28
+pong_tb.clock
+@c00022
+pong_tb.uut.mprj.la_data_in[127:0]
+@28
+(0)pong_tb.uut.mprj.la_data_in[127:0]
+(1)pong_tb.uut.mprj.la_data_in[127:0]
+(2)pong_tb.uut.mprj.la_data_in[127:0]
+(3)pong_tb.uut.mprj.la_data_in[127:0]
+(4)pong_tb.uut.mprj.la_data_in[127:0]
+(5)pong_tb.uut.mprj.la_data_in[127:0]
+(6)pong_tb.uut.mprj.la_data_in[127:0]
+(7)pong_tb.uut.mprj.la_data_in[127:0]
+(8)pong_tb.uut.mprj.la_data_in[127:0]
+(9)pong_tb.uut.mprj.la_data_in[127:0]
+(10)pong_tb.uut.mprj.la_data_in[127:0]
+(11)pong_tb.uut.mprj.la_data_in[127:0]
+(12)pong_tb.uut.mprj.la_data_in[127:0]
+(13)pong_tb.uut.mprj.la_data_in[127:0]
+(14)pong_tb.uut.mprj.la_data_in[127:0]
+(15)pong_tb.uut.mprj.la_data_in[127:0]
+(16)pong_tb.uut.mprj.la_data_in[127:0]
+(17)pong_tb.uut.mprj.la_data_in[127:0]
+(18)pong_tb.uut.mprj.la_data_in[127:0]
+(19)pong_tb.uut.mprj.la_data_in[127:0]
+(20)pong_tb.uut.mprj.la_data_in[127:0]
+(21)pong_tb.uut.mprj.la_data_in[127:0]
+(22)pong_tb.uut.mprj.la_data_in[127:0]
+(23)pong_tb.uut.mprj.la_data_in[127:0]
+(24)pong_tb.uut.mprj.la_data_in[127:0]
+(25)pong_tb.uut.mprj.la_data_in[127:0]
+(26)pong_tb.uut.mprj.la_data_in[127:0]
+(27)pong_tb.uut.mprj.la_data_in[127:0]
+(28)pong_tb.uut.mprj.la_data_in[127:0]
+(29)pong_tb.uut.mprj.la_data_in[127:0]
+(30)pong_tb.uut.mprj.la_data_in[127:0]
+(31)pong_tb.uut.mprj.la_data_in[127:0]
+(32)pong_tb.uut.mprj.la_data_in[127:0]
+(33)pong_tb.uut.mprj.la_data_in[127:0]
+(34)pong_tb.uut.mprj.la_data_in[127:0]
+(35)pong_tb.uut.mprj.la_data_in[127:0]
+(36)pong_tb.uut.mprj.la_data_in[127:0]
+(37)pong_tb.uut.mprj.la_data_in[127:0]
+(38)pong_tb.uut.mprj.la_data_in[127:0]
+(39)pong_tb.uut.mprj.la_data_in[127:0]
+(40)pong_tb.uut.mprj.la_data_in[127:0]
+(41)pong_tb.uut.mprj.la_data_in[127:0]
+(42)pong_tb.uut.mprj.la_data_in[127:0]
+(43)pong_tb.uut.mprj.la_data_in[127:0]
+(44)pong_tb.uut.mprj.la_data_in[127:0]
+(45)pong_tb.uut.mprj.la_data_in[127:0]
+(46)pong_tb.uut.mprj.la_data_in[127:0]
+(47)pong_tb.uut.mprj.la_data_in[127:0]
+(48)pong_tb.uut.mprj.la_data_in[127:0]
+(49)pong_tb.uut.mprj.la_data_in[127:0]
+(50)pong_tb.uut.mprj.la_data_in[127:0]
+(51)pong_tb.uut.mprj.la_data_in[127:0]
+(52)pong_tb.uut.mprj.la_data_in[127:0]
+(53)pong_tb.uut.mprj.la_data_in[127:0]
+(54)pong_tb.uut.mprj.la_data_in[127:0]
+(55)pong_tb.uut.mprj.la_data_in[127:0]
+(56)pong_tb.uut.mprj.la_data_in[127:0]
+(57)pong_tb.uut.mprj.la_data_in[127:0]
+(58)pong_tb.uut.mprj.la_data_in[127:0]
+(59)pong_tb.uut.mprj.la_data_in[127:0]
+(60)pong_tb.uut.mprj.la_data_in[127:0]
+(61)pong_tb.uut.mprj.la_data_in[127:0]
+(62)pong_tb.uut.mprj.la_data_in[127:0]
+(63)pong_tb.uut.mprj.la_data_in[127:0]
+(64)pong_tb.uut.mprj.la_data_in[127:0]
+(65)pong_tb.uut.mprj.la_data_in[127:0]
+(66)pong_tb.uut.mprj.la_data_in[127:0]
+(67)pong_tb.uut.mprj.la_data_in[127:0]
+(68)pong_tb.uut.mprj.la_data_in[127:0]
+(69)pong_tb.uut.mprj.la_data_in[127:0]
+(70)pong_tb.uut.mprj.la_data_in[127:0]
+(71)pong_tb.uut.mprj.la_data_in[127:0]
+(72)pong_tb.uut.mprj.la_data_in[127:0]
+(73)pong_tb.uut.mprj.la_data_in[127:0]
+(74)pong_tb.uut.mprj.la_data_in[127:0]
+(75)pong_tb.uut.mprj.la_data_in[127:0]
+(76)pong_tb.uut.mprj.la_data_in[127:0]
+(77)pong_tb.uut.mprj.la_data_in[127:0]
+(78)pong_tb.uut.mprj.la_data_in[127:0]
+(79)pong_tb.uut.mprj.la_data_in[127:0]
+(80)pong_tb.uut.mprj.la_data_in[127:0]
+(81)pong_tb.uut.mprj.la_data_in[127:0]
+(82)pong_tb.uut.mprj.la_data_in[127:0]
+(83)pong_tb.uut.mprj.la_data_in[127:0]
+(84)pong_tb.uut.mprj.la_data_in[127:0]
+(85)pong_tb.uut.mprj.la_data_in[127:0]
+(86)pong_tb.uut.mprj.la_data_in[127:0]
+(87)pong_tb.uut.mprj.la_data_in[127:0]
+(88)pong_tb.uut.mprj.la_data_in[127:0]
+(89)pong_tb.uut.mprj.la_data_in[127:0]
+(90)pong_tb.uut.mprj.la_data_in[127:0]
+(91)pong_tb.uut.mprj.la_data_in[127:0]
+(92)pong_tb.uut.mprj.la_data_in[127:0]
+(93)pong_tb.uut.mprj.la_data_in[127:0]
+(94)pong_tb.uut.mprj.la_data_in[127:0]
+(95)pong_tb.uut.mprj.la_data_in[127:0]
+(96)pong_tb.uut.mprj.la_data_in[127:0]
+(97)pong_tb.uut.mprj.la_data_in[127:0]
+(98)pong_tb.uut.mprj.la_data_in[127:0]
+(99)pong_tb.uut.mprj.la_data_in[127:0]
+(100)pong_tb.uut.mprj.la_data_in[127:0]
+(101)pong_tb.uut.mprj.la_data_in[127:0]
+(102)pong_tb.uut.mprj.la_data_in[127:0]
+(103)pong_tb.uut.mprj.la_data_in[127:0]
+(104)pong_tb.uut.mprj.la_data_in[127:0]
+(105)pong_tb.uut.mprj.la_data_in[127:0]
+(106)pong_tb.uut.mprj.la_data_in[127:0]
+(107)pong_tb.uut.mprj.la_data_in[127:0]
+(108)pong_tb.uut.mprj.la_data_in[127:0]
+(109)pong_tb.uut.mprj.la_data_in[127:0]
+(110)pong_tb.uut.mprj.la_data_in[127:0]
+(111)pong_tb.uut.mprj.la_data_in[127:0]
+(112)pong_tb.uut.mprj.la_data_in[127:0]
+(113)pong_tb.uut.mprj.la_data_in[127:0]
+(114)pong_tb.uut.mprj.la_data_in[127:0]
+(115)pong_tb.uut.mprj.la_data_in[127:0]
+(116)pong_tb.uut.mprj.la_data_in[127:0]
+(117)pong_tb.uut.mprj.la_data_in[127:0]
+(118)pong_tb.uut.mprj.la_data_in[127:0]
+(119)pong_tb.uut.mprj.la_data_in[127:0]
+(120)pong_tb.uut.mprj.la_data_in[127:0]
+(121)pong_tb.uut.mprj.la_data_in[127:0]
+(122)pong_tb.uut.mprj.la_data_in[127:0]
+(123)pong_tb.uut.mprj.la_data_in[127:0]
+(124)pong_tb.uut.mprj.la_data_in[127:0]
+(125)pong_tb.uut.mprj.la_data_in[127:0]
+(126)pong_tb.uut.mprj.la_data_in[127:0]
+(127)pong_tb.uut.mprj.la_data_in[127:0]
+@1401200
+-group_end
+@22
+pong_tb.uut.mprj.la_data_out[127:0]
+pong_tb.uut.soc.soc.cpu.mem_addr[31:0]
+pong_tb.uut.soc.soc.cpu.mem_rdata[31:0]
+@200
+-
+@c00022
+pong_tb.uut.mprj_io[37:0]
+@28
+(0)pong_tb.uut.mprj_io[37:0]
+(1)pong_tb.uut.mprj_io[37:0]
+(2)pong_tb.uut.mprj_io[37:0]
+(3)pong_tb.uut.mprj_io[37:0]
+(4)pong_tb.uut.mprj_io[37:0]
+(5)pong_tb.uut.mprj_io[37:0]
+(6)pong_tb.uut.mprj_io[37:0]
+(7)pong_tb.uut.mprj_io[37:0]
+(8)pong_tb.uut.mprj_io[37:0]
+(9)pong_tb.uut.mprj_io[37:0]
+(10)pong_tb.uut.mprj_io[37:0]
+(11)pong_tb.uut.mprj_io[37:0]
+(12)pong_tb.uut.mprj_io[37:0]
+(13)pong_tb.uut.mprj_io[37:0]
+(14)pong_tb.uut.mprj_io[37:0]
+(15)pong_tb.uut.mprj_io[37:0]
+(16)pong_tb.uut.mprj_io[37:0]
+(17)pong_tb.uut.mprj_io[37:0]
+(18)pong_tb.uut.mprj_io[37:0]
+(19)pong_tb.uut.mprj_io[37:0]
+(20)pong_tb.uut.mprj_io[37:0]
+(21)pong_tb.uut.mprj_io[37:0]
+(22)pong_tb.uut.mprj_io[37:0]
+(23)pong_tb.uut.mprj_io[37:0]
+(24)pong_tb.uut.mprj_io[37:0]
+(25)pong_tb.uut.mprj_io[37:0]
+(26)pong_tb.uut.mprj_io[37:0]
+(27)pong_tb.uut.mprj_io[37:0]
+(28)pong_tb.uut.mprj_io[37:0]
+(29)pong_tb.uut.mprj_io[37:0]
+(30)pong_tb.uut.mprj_io[37:0]
+(31)pong_tb.uut.mprj_io[37:0]
+(32)pong_tb.uut.mprj_io[37:0]
+(33)pong_tb.uut.mprj_io[37:0]
+(34)pong_tb.uut.mprj_io[37:0]
+(35)pong_tb.uut.mprj_io[37:0]
+(36)pong_tb.uut.mprj_io[37:0]
+(37)pong_tb.uut.mprj_io[37:0]
+@1401200
+-group_end
+@28
+pong_tb.uut.mprj.pong_wrapper.active
+pong_tb.uut.mprj.pong_wrapper.pong0.reset
+@200
+-
+-Screen
+@22
+pong_tb.uut.mprj.pong_wrapper.pong0.screen0.x[3:0]
+pong_tb.uut.mprj.pong_wrapper.pong0.screen0.y[3:0]
+@23
+pong_tb.uut.mprj.pong_wrapper.pong0.screen0.row[3:0]
+@22
+pong_tb.uut.mprj.pong_wrapper.pong0.screen0.col[4:0]
+@28
+pong_tb.uut.mprj.pong_wrapper.pong0.CCLK
+pong_tb.uut.mprj.pong_wrapper.pong0.CSDI
+pong_tb.uut.mprj.pong_wrapper.pong0.LE
+pong_tb.uut.mprj.pong_wrapper.pong0.OEB
+pong_tb.uut.mprj.pong_wrapper.pong0.RCLK
+pong_tb.uut.mprj.pong_wrapper.pong0.RSDI
+@200
+-
+@28
+pong_tb.uut.mprj.pong_wrapper.pong0.cath
+@200
+-
+-Ball
+@28
+pong_tb.uut.mprj.pong_wrapper.pong0.game0.ball0.clk
+pong_tb.uut.mprj.pong_wrapper.pong0.game0.ball0.reset
+@22
+pong_tb.uut.mprj.pong_wrapper.pong0.game0.ball0.lpaddle[15:0]
+pong_tb.uut.mprj.pong_wrapper.pong0.game0.ball0.cos_theta[7:0]
+[pattern_trace] 1
+[pattern_trace] 0
