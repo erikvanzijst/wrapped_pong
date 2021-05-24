@@ -1,7 +1,12 @@
 `default_nettype none
 `ifdef FORMAL
-    `define MPRJ_IO_PADS 38    
+    `define MPRJ_IO_PADS 38
 `endif
+
+`ifndef SCREENTIMERWIDTH
+    `define SCREENTIMERWIDTH 10
+`endif
+
 // update this to the name of your module
 module wrapped_pong(
 `ifdef USE_POWER_PINS
@@ -78,7 +83,7 @@ module wrapped_pong(
     // connecting what you need of the above signals. 
     // Use the buffered outputs for your module's outputs.
 
-    pong #(.GAMECLK(8)) pong0 (
+    pong #(.GAMECLK(8), .SCREENTIMERWIDTH(`SCREENTIMERWIDTH)) pong0 (
         .clk(wb_clk_i),
         .reset(la_data_in[0]),
         
