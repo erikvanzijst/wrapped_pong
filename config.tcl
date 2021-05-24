@@ -18,7 +18,7 @@ set ::env(VERILOG_FILES) "$::env(DESIGN_DIR)/wrapper.v \
     $::env(DESIGN_DIR)/pong/src/pong.v"
 
 # target density, change this if you can't get your design to fit
-set ::env(PL_TARGET_DENSITY) 0.65
+# set ::env(PL_TARGET_DENSITY) 0.65
 
 # set absolute size of the die to 300 x 300 um
 set ::env(DIE_AREA) "0 0 300 300"
