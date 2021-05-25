@@ -15,6 +15,7 @@ set ::env(VERILOG_FILES) "$::env(DESIGN_DIR)/wrapper.v \
     $::env(DESIGN_DIR)/pong/src/trig.v \
     $::env(DESIGN_DIR)/pong/src/paddle.v \
     $::env(DESIGN_DIR)/pong/src/rot_encoder.v \
+    $::env(DESIGN_DIR)/pong/src/rnd.v \
     $::env(DESIGN_DIR)/pong/src/pong.v"
 
 # target density, change this if you can't get your design to fit

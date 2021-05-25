@@ -43,6 +43,7 @@ source:
     - pong/src/paddle.v
     - pong/src/ball.v
     - pong/src/score.v
+    - pong/src/rnd.v
     - pong/src/pong.v
 
 # gds - check size = 300x300, nothing on metal 5, do a DRC, check 141 tristate buffers, check LVS
