@@ -99,7 +99,7 @@ async def test_start(dut):
     assert(dut.uut.mprj.pong_wrapper.pong0.game0.lpaddle == 0b0000001111000000)
     assert(dut.uut.mprj.pong_wrapper.pong0.game0.rpaddle == 0b0000001111000000)
 
-    print("Wait until the screen is ready to draw the row that the ball is on (row %d)..." %
+    print("Wait until the screen is ready to draw the scanline that the ball is on (row %d)..." %
         dut.uut.mprj.pong_wrapper.pong0.y.value)
     await wait_for_value(dut.clock, dut.uut.mprj.pong_wrapper.pong0.screen0.corrected_row, dut.uut.mprj.pong_wrapper.pong0.y.value, 1000)
 
