@@ -69,6 +69,16 @@ void main()
     reg_mprj_io_25 =  GPIO_MODE_USER_STD_OUTPUT;
     reg_mprj_io_26 =  GPIO_MODE_USER_STD_OUTPUT;
 
+    // VGA port:
+    reg_mprj_io_27 =  GPIO_MODE_USER_STD_OUTPUT;    // hsync
+    reg_mprj_io_28 =  GPIO_MODE_USER_STD_OUTPUT;    // vsync
+    reg_mprj_io_29 =  GPIO_MODE_USER_STD_OUTPUT;    // r0
+    reg_mprj_io_30 =  GPIO_MODE_USER_STD_OUTPUT;    // r1
+    reg_mprj_io_31 =  GPIO_MODE_USER_STD_OUTPUT;    // g0
+    reg_mprj_io_32 =  GPIO_MODE_USER_STD_OUTPUT;    // g1
+    reg_mprj_io_33 =  GPIO_MODE_USER_STD_OUTPUT;    // b0
+    reg_mprj_io_34 =  GPIO_MODE_USER_STD_OUTPUT;    // b1
+
     /* Apply configuration */
     reg_mprj_xfer = 1;
     while (reg_mprj_xfer == 1);

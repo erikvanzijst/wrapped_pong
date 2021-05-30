@@ -52,6 +52,7 @@ coco_test: ${PATTERN}.hex
 	-I $(UPRJ_BEHAVIOURAL_MODELS)    -I $(UPRJ_RTL_PATH)
 	
 	MODULE=test_pong vvp -M $$(cocotb-config --prefix)/cocotb/libs -m libcocotbvpi_icarus sim_build/sim.vvp
+	! grep failure results.xml > /dev/null
 
 %.vvp: %_tb.v %.hex
 ifeq ($(SIM),RTL)

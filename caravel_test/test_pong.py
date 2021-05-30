@@ -12,7 +12,7 @@ clocks_per_phase = 10
 async def wait_for_value(clk, signal, val, max_ticks):
     for i in range(max_ticks):
         await RisingEdge(clk)
-        if (signal == val):
+        if signal == val:
             return signal
     raise TestFailure(f"{signal} did not reach value {val} within {max_ticks} clock ticks")
 

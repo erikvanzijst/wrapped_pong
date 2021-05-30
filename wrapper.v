@@ -84,7 +84,8 @@ module wrapped_pong(
     // Use the buffered outputs for your module's outputs.
 
     pong #(.GAMECLK(8), .SCREENTIMERWIDTH(`SCREENTIMERWIDTH)) pong0 (
-        .clk(wb_clk_i),
+        .clk12mhz(wb_clk_i),
+        .clk32mhz(wb_clk_i),
         .reset(la_data_in[0]),
         
         .start(io_in[8]),
@@ -110,7 +111,13 @@ module wrapped_pong(
         .OEB(buf_io_out[23]),
         .CSDI(buf_io_out[24]),
         .CCLK(buf_io_out[25]),
-        .LE(buf_io_out[26])
+        .LE(buf_io_out[26]),
+
+        // VGA port:
+        .hsync(buf_io_out[27]),
+        .vsync(buf_io_out[28]),
+        .rrggbb(buf_io_out[34:29])
+
     );
 
 endmodule 

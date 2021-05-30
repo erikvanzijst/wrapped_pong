@@ -62,6 +62,10 @@ module pong_tb;
     wire CCLK  = mprj_io[25];
     wire LE    = mprj_io[26];
 
+    wire hsync = mprj_io[27];
+    wire vsync = mprj_io[28];
+    wire [5:0] rrggbb = mprj_io[34:29];
+
     wire flash_csb;
     wire flash_clk;
     wire flash_io0;
