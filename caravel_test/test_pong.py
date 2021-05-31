@@ -47,10 +47,10 @@ def printscreen(scanlines) -> None:
 
 def assert_screen(expected: str, scanlines) -> None:
     for i, line in enumerate(expected.splitlines()):
-        if (line != bin(scanlines[i])[2:].rjust(16, '0')):
+        if line != bin(scanlines[i])[2:].rjust(16, '0'):
             error = "Screen mismatch\n"
-            for i, line in enumerate(expected.splitlines()):
-                error += (line + "        " + bin(scanlines[i])[2:].rjust(16, '0') + "\n")
+            for i_, line_ in enumerate(expected.splitlines()):
+                error += (line_ + "        " + bin(scanlines[i_])[2:].rjust(16, '0') + "\n")
             error += "    Expected                 Actual\n"
             raise TestFailure(error)
 
@@ -60,7 +60,7 @@ async def test_start(dut):
     clock = Clock(dut.clock, 25, units="ns")
     cocotb.fork(clock.start())
     print("Test has started the clock")
-    
+
     dut.RSTB <= 0
     dut.power1 <= 0
     dut.power2 <= 0
@@ -96,12 +96,12 @@ async def test_start(dut):
     await FallingEdge(dut.uut.mprj.pong_wrapper.pong0.reset)
     print("Reset completed")
 
-    assert(dut.uut.mprj.pong_wrapper.pong0.game0.lpaddle == 0b0000001111000000)
-    assert(dut.uut.mprj.pong_wrapper.pong0.game0.rpaddle == 0b0000001111000000)
+    assert(dut.uut.mprj.pong_wrapper.pong0.game0.lpaddle == 0b00000000000011111111000000000000)
+    assert(dut.uut.mprj.pong_wrapper.pong0.game0.rpaddle == 0b00000000000011111111000000000000)
 
     print("Wait until the screen is ready to draw the scanline that the ball is on (row %d)..." %
-        dut.uut.mprj.pong_wrapper.pong0.y.value)
-    await wait_for_value(dut.clock, dut.uut.mprj.pong_wrapper.pong0.screen0.corrected_row, dut.uut.mprj.pong_wrapper.pong0.y.value, 1000)
+          (dut.uut.mprj.pong_wrapper.pong0.y.value.integer / 2))
+    await wait_for_value(dut.clock, dut.uut.mprj.pong_wrapper.pong0.screen0.corrected_row, dut.uut.mprj.pong_wrapper.pong0.y.value.integer / 2, 3000)
 
     print("Capturing the contents of the next screen refresh...")
     screen = await scanlines(dut)
@@ -114,7 +114,7 @@ async def test_start(dut):
         0000000000000000
         1000000000000001
         1000000000000001
-        1000000100000001
+        1000000010000001
         1000000000000001
         0000000000000000
         0000000000000000
