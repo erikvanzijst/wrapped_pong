@@ -56,16 +56,6 @@ module wrapped_pong(
     // could be passed on to the user space area so as to offer a second
     // configurable clock.
 
-    reg [1:0] clkdiv;
-
-    initial begin
-        clkdiv <= 0;
-    end
-
-    always @(posedge wb_clk_i) begin
-        clkdiv <= clkdiv == 2'b10 ? 0 : clkdiv + 1;
-    end
-
     // all outputs must be tristated before being passed onto the project
     wire buf_wbs_ack_o;
     wire [31:0] buf_wbs_dat_o;
