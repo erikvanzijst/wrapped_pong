@@ -30,8 +30,8 @@ set ::env(FP_SIZING) absolute
 # define number of IO pads
 set ::env(SYNTH_DEFINES) "MPRJ_IO_PADS=38"
 
-# clock period is ns (12HMz)
-set ::env(CLOCK_PERIOD) "83"
+# clock period is ns (31.7HMz)
+set ::env(CLOCK_PERIOD) "32"
 set ::env(CLOCK_PORT) "wb_clk_i"
 
 # macro needs to work inside Caravel, so can't be core and can't use metal 5
