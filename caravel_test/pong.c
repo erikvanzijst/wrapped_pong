@@ -100,8 +100,9 @@ void main()
     /*
      * PLL Configuration
      *
-     * See Caravel datasheet:
-     * https://github.com/lakshmi-sathi/avsdpll1v8_caravel/blob/master/doc/caravel_datasheet.pdf
+     * See Caravel datasheet and rough clock layout:
+     * - https://github.com/lakshmi-sathi/avsdpll1v8_caravel/blob/master/doc/caravel_datasheet.pdf
+     * - https://gist.github.com/kbeckmann/da4bc07d7ddfe854074e74822a10cc9e
      *
      * Since the Pong circuit's VGA module needs a 31.5MHz clock while the
      * external oscillator is 10MHz, use the PLL to multiply the clock.
