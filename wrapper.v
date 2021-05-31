@@ -4,6 +4,7 @@
 `endif
 
 `ifndef SCREENTIMERWIDTH
+    // Used to override the matrix screen refresh time during tests
     `define SCREENTIMERWIDTH 10
 `endif
 
@@ -20,7 +21,7 @@ module wrapped_pong(
     inout vssd2,	// User area 2 digital ground
 `endif
     // wishbone interface
-    input wire wb_clk_i,            // clock, runs at system clock
+    input wire wb_clk_i,            // system clock -- ~31.5MHz from soc PLL set in firmware
     input wire wb_rst_i,            // main system reset
     input wire wbs_stb_i,           // wishbone write strobe
     input wire wbs_cyc_i,           // wishbone cycle
@@ -48,6 +49,22 @@ module wrapped_pong(
     // active input, only connect tristated outputs if this is high
     input wire active
 );
+    // Tiny clock 3-to-1 devider to generate a ~10.5MHz clock for the game
+    // logic.
+    // We can't get to an accurate 12MHz clock this way, so it would be better
+    // if the PLL's second divider output (register address 0x11, bit 5–3)
+    // could be passed on to the user space area so as to offer a second
+    // configurable clock.
+
+    reg [1:0] clkdiv;
+
+    initial begin
+        clkdiv <= 0;
+    end
+
+    always @(posedge wb_clk_i) begin
+        clkdiv <= clkdiv == 2'b10 ? 0 : clkdiv + 1;
+    end
 
     // all outputs must be tristated before being passed onto the project
     wire buf_wbs_ack_o;
@@ -83,8 +100,12 @@ module wrapped_pong(
     // connecting what you need of the above signals. 
     // Use the buffered outputs for your module's outputs.
 
-    pong #(.GAMECLK(8), .SCREENTIMERWIDTH(`SCREENTIMERWIDTH)) pong0 (
-        .clk12mhz(wb_clk_i),
+    pong #(
+    `ifdef GAMECLK
+        // Used to override the game speed during tests
+        .GAMECLK(`GAMECLK),
+    `endif
+    .SCREENTIMERWIDTH(`SCREENTIMERWIDTH)) pong0 (
         .clk32mhz(wb_clk_i),
         .reset(la_data_in[0]),
         
@@ -117,7 +138,6 @@ module wrapped_pong(
         .hsync(buf_io_out[27]),
         .vsync(buf_io_out[28]),
         .rrggbb(buf_io_out[34:29])
-
     );
 
 endmodule 

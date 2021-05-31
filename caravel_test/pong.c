@@ -83,6 +83,82 @@ void main()
     reg_mprj_xfer = 1;
     while (reg_mprj_xfer == 1);
 
+    // Enable SPI master
+    // SPI master configuration bits:
+    // bits 7-0:	Clock prescaler value (default 2)
+    // bit  8:		MSB/LSB first (0 = MSB first, 1 = LSB first)
+    // bit  9:		CSB sense (0 = inverted, 1 = noninverted)
+    // bit 10:		SCK sense (0 = noninverted, 1 = inverted)
+    // bit 11:		mode (0 = read/write opposite edges, 1 = same edges)
+    // bit 12:		stream (1 = CSB ends transmission)
+    // bit 13:		enable (1 = enabled)
+    // bit 14:		IRQ enable (1 = enabled)
+    // bit 15:		Connect to housekeeping SPI (1 = connected)
+    reg_spimaster_config = 0xa002;	// Enable, prescaler = 2,
+					                // connect to housekeeping SPI
+
+    /*
+     * PLL Configuration
+     *
+     * See Caravel datasheet:
+     * https://github.com/lakshmi-sathi/avsdpll1v8_caravel/blob/master/doc/caravel_datasheet.pdf
+     *
+     * Since the Pong circuit's VGA module needs a 31.5MHz clock while the
+     * external oscillator is 10MHz, use the PLL to multiply the clock.
+     *
+     * The PLL is configured through values for the output divider and
+     * feedback divider. Suitable values can be found running @kbeckmann's
+     * calculator: https://github.com/kbeckmann/caravel-pll-calculator
+     *
+     * The closest the PLL can get on an external 10MHz clock is 31.667MHz:
+     *
+     * $ python3 caravel_pll.py generate --allow-deviation --clkin 10 -o 31.5
+     *  PLL Parameters:
+     *
+     *  clkin:    10.00 MHz
+     *  clkout:   31.67 MHz
+     *  clkout90: 31.67 MHz
+     *
+     *  PLL Feedback Divider: 19
+     *  PLL Output Divider 1: 6
+     *  PLL Output Divider 2: 6
+     *
+     *  Register 0x11: 0x36
+     *  Register 0x12: 0x13
+     *
+     * Caravel only passes the PLL's primary output clock to the user space
+     * area through `wb_clk_i`. The wrapper then divides it down to 12MHz to
+     * run the slower game modules.
+     */
+
+    // Enable the PLL
+    reg_spimaster_config = 0xb002;	// Apply stream mode
+    reg_spimaster_data = 0x80;		// Write 0x80 (write mode)
+    reg_spimaster_data = 0x08;		// Write 0x18 (start address)
+    reg_spimaster_data = 0x01;		// Write 0x01 to PLL enable, no DCO mode
+    reg_spimaster_config = 0xa102;	// Release CSB (ends stream mode)
+
+    // Turn off PLL bypass (run the system from the PLL output clock)
+    reg_spimaster_config = 0xb002;	// Apply stream mode
+    reg_spimaster_data = 0x80;		// Write 0x80 (write mode)
+    reg_spimaster_data = 0x09;		// Write 0x09 (start address)
+    reg_spimaster_data = 0x00;		// Write 0x00 to clock from PLL (no bypass)
+    reg_spimaster_config = 0xa102;	// Release CSB (ends stream mode)
+
+    // Configure PLL output divider
+    reg_spimaster_config = 0xb002;	// Apply stream mode
+    reg_spimaster_data = 0x80;		// Write 0x80 (write mode)
+    reg_spimaster_data = 0x11;		// Write 0x11 (start address) PLL output divider
+    reg_spimaster_data = 0x36;		// Write 0x06 to PLL output divider 1 and 2
+    reg_spimaster_config = 0xa102;	// Release CSB (ends stream mode)
+
+    // Configure PLL feedback divider
+    reg_spimaster_config = 0xb002;	// Apply stream mode
+    reg_spimaster_data = 0x80;		// Write 0x80 (write mode)
+    reg_spimaster_data = 0x12;		// Write 0x12 (start address) PLL feedback divider
+    reg_spimaster_data = 0x13;		// Write 0x13 (19 decimal) to PLL feedback divider
+    reg_spimaster_config = 0xa102;	// Release CSB (ends stream mode)
+
     // // activate the project by setting the 0th bit of 2nd bank of LA
     reg_la1_oenb = 0;
     reg_la1_iena = 0;
