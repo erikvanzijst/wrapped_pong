@@ -79,6 +79,11 @@ void main()
     reg_mprj_io_33 =  GPIO_MODE_USER_STD_OUTPUT;    // b0
     reg_mprj_io_34 =  GPIO_MODE_USER_STD_OUTPUT;    // b1
 
+    // Difficulty
+    reg_mprj_io_35 =  GPIO_MODE_USER_STD_INPUT_NOPULL;
+    reg_mprj_io_36 =  GPIO_MODE_USER_STD_INPUT_NOPULL;
+    reg_mprj_io_37 =  GPIO_MODE_USER_STD_INPUT_NOPULL;
+
     /* Apply configuration */
     reg_mprj_xfer = 1;
     while (reg_mprj_xfer == 1);

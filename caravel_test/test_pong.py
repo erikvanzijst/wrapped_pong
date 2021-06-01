@@ -67,6 +67,8 @@ async def test_start(dut):
     dut.power3 <= 0
     dut.power4 <= 0
 
+    dut.difficulty <= 0     # zero speed, freezes the ball
+
     await ClockCycles(dut.clock, 8)
     dut.power1 <= 1
     await ClockCycles(dut.clock, 8)

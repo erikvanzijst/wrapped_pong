@@ -127,7 +127,10 @@ module wrapped_pong(
         // VGA port:
         .hsync(buf_io_out[27]),
         .vsync(buf_io_out[28]),
-        .rrggbb(buf_io_out[34:29])
+        .rrggbb(buf_io_out[34:29]),
+
+        // Difficulty (we're one IO pin short!):
+        .difficulty({buf_io_out[37:35], 1'b0})
     );
 
 endmodule 

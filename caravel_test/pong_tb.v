@@ -67,6 +67,8 @@ module pong_tb;
     wire vsync = mprj_io[28];
     wire [5:0] rrggbb = mprj_io[34:29];
 
+    wire [2:0] difficulty = mprj_io[37:35];
+
     wire flash_csb;
     wire flash_clk;
     wire flash_io0;
