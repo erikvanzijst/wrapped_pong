@@ -8,6 +8,11 @@
     `define SCREENTIMERWIDTH 10
 `endif
 
+`ifndef GAMECLK
+    // Can be overridden in tests for more efficient simulation
+    `define GAMECLK 10000
+`endif
+
 // update this to the name of your module
 module wrapped_pong(
 `ifdef USE_POWER_PINS
