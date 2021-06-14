@@ -98,6 +98,10 @@ module wrapped_pong(
         // Used to override the game speed during tests
         .GAMECLK(`GAMECLK),
     `endif
+    `ifdef DEBOUNCEWIDTH
+        // Can be override during tests
+        .DEBOUNCEWIDTH(`DEBOUNCEWIDTH),
+    `endif
     .SCREENTIMERWIDTH(`SCREENTIMERWIDTH)) pong0 (
         .clk32mhz(wb_clk_i),
         .reset(la_data_in[0]),
