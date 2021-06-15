@@ -108,6 +108,9 @@ module wrapped_pong(
         
         .start(io_in[8]),
 
+        // Difficulty (we're one IO pin short!):
+        .difficulty({io_in[37:35], 1'b0}),
+
         .player1_a(io_in[9]),
         .player1_b(io_in[10]),
         .player2_a(io_in[11]),
@@ -135,9 +138,6 @@ module wrapped_pong(
         .hsync(buf_io_out[27]),
         .vsync(buf_io_out[28]),
         .rrggbb(buf_io_out[34:29]),
-
-        // Difficulty (we're one IO pin short!):
-        .difficulty({buf_io_out[37:35], 1'b0}),
 
         // Debugging:
         .x(buf_la_data_out[4:0]),

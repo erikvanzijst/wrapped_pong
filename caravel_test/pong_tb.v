@@ -18,7 +18,9 @@
 `timescale 1 ns / 1 ps
 
 `define SCREENTIMERWIDTH 5
-`define GAMECLK 8
+`define GAMECLK 2
+`define DEBOUNCEWIDTH 2
+
 `include "uprj_netlists.v"
 `include "caravel_netlists.v"
 `include "spiflash.v"
