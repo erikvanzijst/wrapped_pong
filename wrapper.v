@@ -137,7 +137,11 @@ module wrapped_pong(
         .rrggbb(buf_io_out[34:29]),
 
         // Difficulty (we're one IO pin short!):
-        .difficulty({buf_io_out[37:35], 1'b0})
+        .difficulty({buf_io_out[37:35], 1'b0}),
+
+        // Debugging:
+        .x(buf_la_data_out[4:0]),
+        .y(buf_la_data_out[9:5])
     );
 
 endmodule 

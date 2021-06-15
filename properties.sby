@@ -24,5 +24,3 @@ pong/src/rnd.v
 pong/src/pong.v
 pong/src/vga.v
 pong/src/vgasync.v
-pong/sine.lut
-pong/paddles.rom
