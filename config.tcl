@@ -5,7 +5,8 @@ set script_dir [file dirname [file normalize [info script]]]
 set ::env(DESIGN_NAME) wrapped_pong
 
 # add your source files here
-set ::env(VERILOG_FILES) "$::env(DESIGN_DIR)/wrapper.v \
+set ::env(VERILOG_FILES) "$::env(DESIGN_DIR)/pong/src/gatelevel.v \
+    $::env(DESIGN_DIR)/wrapper.v \
     $::env(DESIGN_DIR)/pong/src/ball.v \
     $::env(DESIGN_DIR)/pong/src/screen.v \
     $::env(DESIGN_DIR)/pong/src/debounce.v \
