@@ -134,6 +134,9 @@ module wrapped_pong(
         .vsync(buf_io_out[26]),
         .rrggbb(buf_io_out[32:27]),
 
+        // Passive piezo buzzer:
+        .buzzer(buf_io_out[37]),
+
         // Debugging:
         .x(buf_la_data_out[4:0]),
         .y(buf_la_data_out[9:5])

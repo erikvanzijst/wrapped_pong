@@ -66,6 +66,8 @@ module pong_tb;
     wire vsync = mprj_io[26];
     wire [5:0] rrggbb = mprj_io[32:27];
 
+    wire buzzer = mprj_io[37];
+
     wire [3:0] difficulty;
     assign mprj_io[36:33] = difficulty;
 

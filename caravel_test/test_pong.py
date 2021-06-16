@@ -60,8 +60,8 @@ async def test_start(dut):
     await FallingEdge(dut.uut.mprj.pong_wrapper.pong0.reset)
     print("Reset completed")
 
-    assert(dut.uut.mprj.pong_wrapper.pong0.game0.lpaddle == 0b00000000000011111111000000000000)
-    assert(dut.uut.mprj.pong_wrapper.pong0.game0.rpaddle == 0b00000000000011111111000000000000)
+    assert dut.uut.mprj.pong_wrapper.pong0.game0.lpaddle == 0b00000000000011111111000000000000
+    assert dut.uut.mprj.pong_wrapper.pong0.game0.rpaddle == 0b00000000000011111111000000000000
 
     print("Move paddles...")
     for _ in range(20):
