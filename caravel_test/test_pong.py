@@ -19,12 +19,6 @@ async def wait_for_value(clk, signal, val, max_ticks):
     raise TestFailure(f"{signal} did not reach value {val} within {max_ticks} clock ticks")
 
 
-def set_difficulty(dut, difficulty: int) -> None:
-    dut.mprj_io[37] <= (difficulty >> 3) & 1
-    dut.mprj_io[36] <= (difficulty >> 2) & 1
-    dut.mprj_io[35] <= (difficulty >> 1) & 1
-
-
 @cocotb.test()
 async def test_start(dut):
     clock = Clock(dut.clock, 25, units="ns")
@@ -37,9 +31,9 @@ async def test_start(dut):
     dut.power3 <= 0
     dut.power4 <= 0
 
-    set_difficulty(dut, 0)
-    lpaddle = Paddle(dut.mprj_io[9], dut.mprj_io[10])
-    rpaddle = Paddle(dut.mprj_io[11], dut.mprj_io[12])
+    dut.difficulty = 0
+    lpaddle = Paddle(dut.player1_a, dut.player1_b)
+    rpaddle = Paddle(dut.player2_a, dut.player2_b)
 
     await ClockCycles(dut.clock, 8)
     dut.power1 <= 1
@@ -55,7 +49,7 @@ async def test_start(dut):
     await ClockCycles(dut.clock, 80)
     dut.RSTB <= 1
 
-    dut.mprj_io[8] = 0
+    dut.start = 0
 
     print("Waiting for project to become active...")
     # wait for the project to become active
@@ -107,19 +101,19 @@ async def test_ball_movement(dut):
     clock = Clock(dut.clock, 31, units="ns")
     cocotb.fork(clock.start())
 
-    set_difficulty(dut, 0)
+    dut.difficulty = 0
     print("Pressing start...")
-    dut.mprj_io[8] = 1
+    dut.start = 1
     await ClockCycles(dut.clock, 8)
-    dut.mprj_io[8] = 0
+    dut.start = 0
 
-    set_difficulty(dut, 0xF)
+    dut.difficulty = 0xF
     cycles = int(2**16 / (127 * 15)) * 3 + 4
     print("Waiting %d clock cycles for the ball to move 1 pixel..." % cycles)
     await ClockCycles(dut.clock, cycles)
     x = dut.uut.mprj.pong_wrapper.pong0.x.value.integer
     y = dut.uut.mprj.pong_wrapper.pong0.y.value.integer
-    set_difficulty(dut, 0)   # prevent further ball movement while we capture the screen
+    dut.difficulty = 0  # prevent further ball movement while we capture the screen
 
     print(f"Ball now at: x={x} y={y}")
     print("Collecting next screen refresh...")

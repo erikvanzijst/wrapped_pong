@@ -108,36 +108,31 @@ module wrapped_pong(
         
         .start(io_in[8]),
 
-        // Difficulty (we're one IO pin short!):
-        .difficulty({io_in[37:35], 1'b0}),
+        // Difficulty:
+        .difficulty(io_in[36:33]),
 
         .player1_a(io_in[9]),
         .player1_b(io_in[10]),
         .player2_a(io_in[11]),
         .player2_b(io_in[12]),
 
-        // 7-segment scoreboards:
-        .seg_a(buf_io_out[13]),
-        .seg_b(buf_io_out[14]),
-        .seg_c(buf_io_out[15]),
-        .seg_d(buf_io_out[16]),
-        .seg_e(buf_io_out[17]),
-        .seg_f(buf_io_out[18]),
-        .seg_g(buf_io_out[19]),
-        .cath(buf_io_out[20]),
+        // BCD scoreboards:
+        .score(buf_io_out[16:13]),
+        .cath1(buf_io_out[17]),
+        .cath2(buf_io_out[18]),
 
         // 16x16 Matrix display:
-        .RCLK(buf_io_out[21]),
-        .RSDI(buf_io_out[22]),
-        .OEB(buf_io_out[23]),
-        .CSDI(buf_io_out[24]),
-        .CCLK(buf_io_out[25]),
-        .LE(buf_io_out[26]),
+        .RCLK(buf_io_out[19]),
+        .RSDI(buf_io_out[20]),
+        .OEB(buf_io_out[21]),
+        .CSDI(buf_io_out[22]),
+        .CCLK(buf_io_out[23]),
+        .LE(buf_io_out[24]),
 
         // VGA port:
-        .hsync(buf_io_out[27]),
-        .vsync(buf_io_out[28]),
-        .rrggbb(buf_io_out[34:29]),
+        .hsync(buf_io_out[25]),
+        .vsync(buf_io_out[26]),
+        .rrggbb(buf_io_out[32:27]),
 
         // Debugging:
         .x(buf_la_data_out[4:0]),

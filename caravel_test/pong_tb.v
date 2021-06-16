@@ -42,34 +42,32 @@ module pong_tb;
     wire [37:0] mprj_io;
 
     // convenience signals
-    wire start = mprj_io[8];
+    wire start;
+    assign mprj_io[8] = start;
 
-    wire player1_a = mprj_io[9];
-    wire player1_b = mprj_io[10];
-    wire player2_a = mprj_io[11];
-    wire player2_b = mprj_io[12];
+    wire player1_a, player1_b, player2_a, player2_b;
+    assign mprj_io[9]  = player1_a;
+    assign mprj_io[10] = player1_b;
+    assign mprj_io[11] = player2_a;
+    assign mprj_io[12] = player2_b;
 
-    wire seg_a = mprj_io[13];
-    wire seg_b = mprj_io[14];
-    wire seg_c = mprj_io[15];
-    wire seg_d = mprj_io[16];
-    wire seg_e = mprj_io[17];
-    wire seg_f = mprj_io[18];
-    wire seg_g = mprj_io[19];
-    wire cath  = mprj_io[20];
+    wire [3:0] score = mprj_io[16:13];
+    wire cath1 = mprj_io[17];
+    wire cath2 = mprj_io[18];
 
-    wire RCLK  = mprj_io[21];
-    wire RSDI  = mprj_io[22];
-    wire OEB   = mprj_io[23];
-    wire CSDI  = mprj_io[24];
-    wire CCLK  = mprj_io[25];
-    wire LE    = mprj_io[26];
+    wire RCLK  = mprj_io[19];
+    wire RSDI  = mprj_io[20];
+    wire OEB   = mprj_io[21];
+    wire CSDI  = mprj_io[22];
+    wire CCLK  = mprj_io[23];
+    wire LE    = mprj_io[24];
 
-    wire hsync = mprj_io[27];
-    wire vsync = mprj_io[28];
-    wire [5:0] rrggbb = mprj_io[34:29];
+    wire hsync = mprj_io[25];
+    wire vsync = mprj_io[26];
+    wire [5:0] rrggbb = mprj_io[32:27];
 
-    wire [2:0] difficulty = mprj_io[37:35];
+    wire [3:0] difficulty;
+    assign mprj_io[36:33] = difficulty;
 
     wire flash_csb;
     wire flash_clk;
