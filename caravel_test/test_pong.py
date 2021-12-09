@@ -53,15 +53,15 @@ async def test_start(dut):
 
     print("Waiting for project to become active...")
     # wait for the project to become active
-    await RisingEdge(dut.uut.mprj.pong_wrapper.active)
+    await RisingEdge(dut.uut.mprj.wrapped_pong_4.active)
 
     print("Waiting for reset to go high...")
-    await RisingEdge(dut.uut.mprj.pong_wrapper.pong0.reset)
-    await FallingEdge(dut.uut.mprj.pong_wrapper.pong0.reset)
+    await RisingEdge(dut.uut.mprj.wrapped_pong_4.pong0.reset)
+    await FallingEdge(dut.uut.mprj.wrapped_pong_4.pong0.reset)
     print("Reset completed")
 
-    assert dut.uut.mprj.pong_wrapper.pong0.game0.lpaddle == 0b00000000000011111111000000000000
-    assert dut.uut.mprj.pong_wrapper.pong0.game0.rpaddle == 0b00000000000011111111000000000000
+    assert dut.uut.mprj.wrapped_pong_4.pong0.game0.lpaddle == 0b00000000000011111111000000000000
+    assert dut.uut.mprj.wrapped_pong_4.pong0.game0.rpaddle == 0b00000000000011111111000000000000
 
     print("Move paddles...")
     for _ in range(20):
@@ -70,8 +70,8 @@ async def test_start(dut):
         await ClockCycles(dut.clock, 2**DEBOUNCEWIDTH * 4)
 
     print("Wait until the screen is ready to draw the scanline that the ball is on (row %d)..." %
-          (dut.uut.mprj.pong_wrapper.pong0.y.value.integer / 2))
-    await wait_for_value(dut.clock, dut.uut.mprj.pong_wrapper.pong0.screen0.corrected_row, dut.uut.mprj.pong_wrapper.pong0.y.value.integer / 2, 3000)
+          (dut.uut.mprj.wrapped_pong_4.pong0.y.value.integer / 2))
+    await wait_for_value(dut.clock, dut.uut.mprj.wrapped_pong_4.pong0.screen0.corrected_row, dut.uut.mprj.wrapped_pong_4.pong0.y.value.integer / 2, 3000)
 
     print("Capturing the contents of the next screen refresh...")
     screen = await scanlines(dut)
@@ -111,8 +111,8 @@ async def test_ball_movement(dut):
     cycles = int(2**16 / (127 * 15)) * 3 + 4
     print("Waiting %d clock cycles for the ball to move 1 pixel..." % cycles)
     await ClockCycles(dut.clock, cycles)
-    x = dut.uut.mprj.pong_wrapper.pong0.x.value.integer
-    y = dut.uut.mprj.pong_wrapper.pong0.y.value.integer
+    x = dut.uut.mprj.wrapped_pong_4.pong0.x.value.integer
+    y = dut.uut.mprj.wrapped_pong_4.pong0.y.value.integer
     dut.difficulty = 0  # prevent further ball movement while we capture the screen
 
     print(f"Ball now at: x={x} y={y}")
